@@ -8,7 +8,7 @@ import com.mobiquityinc.packer.util.PackerChallengeAlgorithm;
 import com.mobiquityinc.packer.util.PackerReader;
 
 /**
- * The Class PackerChallengeManager. manages the procces from (getting the information from file according to it's type currently we support read from text file) and process this using algorthime
+ * The Class PackerChallengeManager. manages the process from (getting the information from file according to it's type currently we support read from text file) and process this using knapsackProblem
  */
 public class PackerChallengeManager {
 
@@ -30,12 +30,8 @@ public class PackerChallengeManager {
 
     }
 
-    /**
-     * Gets the items.
-     *
-     * @return the items
-     */
-    public void getItems(String fileName){
+    
+    public void process(String fileName){
         final List<Package> packages = this.packerReader.collectPackagesFromFile(fileName);
         packages.stream().forEach(pkg -> this.packerChallengeAlgorithm.knapSack(pkg.getWeight(), pkg.getItems()));
         

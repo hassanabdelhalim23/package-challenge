@@ -1,0 +1,8 @@
+/*.launch
+/*.settings
+/.classpath
+/.project
+/.settings
+/nb-configuration.xml
+src/main/conf/target
+/target

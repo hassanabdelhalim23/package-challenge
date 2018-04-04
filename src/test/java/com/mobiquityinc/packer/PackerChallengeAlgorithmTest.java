@@ -1,12 +1,4 @@
-/*
- * Copyright 2018 Mondia Media Group GmbH. All rights reserved.
- *
- * This software is the confidential and proprietary information
- * of Mondia Media Group GmbH ("Confidential Information").
- * You shall not disclose such Confidential Information and shall
- * use it only in accordance with the terms of the license agreement
- * you entered into with Mondia Media Group GmbH.
- */
+
 package com.mobiquityinc.packer;
 
 import java.util.Arrays;
@@ -46,12 +38,13 @@ public class PackerChallengeAlgorithmTest {
         final Item item1 = new Item();
         item1.setCost(2.0);
         item1.setWeight(3.0);
-        item1.setIndex(2);
+        item1.setIndex(1);
 
         final Item item2 = new Item();
         item2.setCost(4.0);
         item2.setWeight(7.0);
         item2.setIndex(3);
+        
         return Arrays.asList(item, item1, item2);
 
     }

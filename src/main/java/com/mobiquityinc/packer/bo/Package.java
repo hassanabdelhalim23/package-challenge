@@ -4,7 +4,7 @@ package com.mobiquityinc.packer.bo;
 import java.util.List;
 
 /**
- * The Class Package.
+ * The Class Package. contains the every weight with the items that can be set on it 
  * 
  * 
  */

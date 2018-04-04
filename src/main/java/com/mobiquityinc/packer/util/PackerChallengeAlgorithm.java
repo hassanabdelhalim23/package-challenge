@@ -1,6 +1,8 @@
 
 package com.mobiquityinc.packer.util;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import com.mobiquityinc.packer.bo.Item;
@@ -24,6 +26,8 @@ public class PackerChallengeAlgorithm {
 	 * @return the double
 	 */
 	public double knapSack(final Double weight, final List<Item> items) {
+
+		Collections.sort(items);
 		final double matrix[][] = new double[items.size() + 1][weight.intValue() + 1];
 
 		for (int elment = 0; elment <= items.size(); elment++) {
@@ -68,12 +72,12 @@ public class PackerChallengeAlgorithm {
 		int i;
 		int w = weight.intValue();
 
-		for (i = matrix.length; i > 0 && response > 0; i--) {
+		for (i = matrix.length-1 ; i > 0 && response > 0; i--) {
 
 			if (response == matrix[i - 1][w]) {
 				continue;
 			} else {
-				indexItems += i + ",";
+				indexItems += items.get(i-1).getIndex()+",";
 				response = response - items.get(i - 1).getCost();
 				w = w - items.get(i - 1).getWeight().intValue();
 			}
@@ -81,7 +85,6 @@ public class PackerChallengeAlgorithm {
 		}
 
 		if (indexItems.isEmpty()) {
-
 			System.out.println("-");
 		} else {
 			System.out.println(indexItems.substring(0, indexItems.length() - 1));

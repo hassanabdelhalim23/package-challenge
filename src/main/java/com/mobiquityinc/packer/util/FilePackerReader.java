@@ -1,12 +1,4 @@
-/*
- * Copyright 2018 Mondia Media Group GmbH. All rights reserved.
- *
- * This software is the confidential and proprietary information
- * of Mondia Media Group GmbH ("Confidential Information").
- * You shall not disclose such Confidential Information and shall
- * use it only in accordance with the terms of the license agreement
- * you entered into with Mondia Media Group GmbH.
- */
+
 package com.mobiquityinc.packer.util;
 
 import java.io.BufferedReader;
@@ -18,16 +10,23 @@ import java.util.List;
 import com.mobiquityinc.packer.bo.Item;
 import com.mobiquityinc.packer.bo.Package;
 import com.mobiquityinc.packer.exception.ApiException;
-import com.mobiquityinc.packer.validation.ValidactionFactory;
 import com.mobiquityinc.packer.validation.Validator;
 
+/**
+ * The Class FilePackerReader. an implmention of {@link PackerReader}
+ */
 public class FilePackerReader implements PackerReader {
 
+  
+	
+	/* (non-Javadoc)
+     * @see com.mobiquityinc.packer.util.PackerReader#collectPackagesFromFile(java.lang.String)
+     */
     @Override
     public List<Package> collectPackagesFromFile(final String fileName) {
 
-        final Validator<Item> itemValidator = ValidactionFactory.getValidation("item");
-        final Validator<Package> weightValidator = ValidactionFactory.getValidation("weight");
+        final Validator<Item> itemValidator = (Validator<Item>) ApplicationFactory.map.get("itemValidator");
+        final Validator<Package> weightValidator = (Validator<Package>) ApplicationFactory.map.get("weightValidator");
 
         final List<Package> packages = new ArrayList<>();
          try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
@@ -69,6 +68,13 @@ public class FilePackerReader implements PackerReader {
 
     }
 
+    /**
+     * Validate item.
+     *
+     * @param weight the weight
+     * @param items the items
+     * @param item the item
+     */
     public void validateItem(final Double weight, final List<Item> items, final Item item) {
 
         if (item.getWeight() <= weight) {

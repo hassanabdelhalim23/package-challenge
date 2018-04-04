@@ -2,9 +2,9 @@
 package com.mobiquityinc.packer.bo;
 
 /**
- * The Class Item. represent the properties that will be read from the file
+ * The Class Item. represent the properties related to item  will be read from the file
  */
-public class Item {
+public class Item  implements  Comparable<Item> {
 
     /** The index. */
     private Integer index;
@@ -68,5 +68,11 @@ public class Item {
     public void setCost(final Double cost) {
         this.cost = cost;
     }
+
+	@Override
+	public int compareTo(Item o) {
+		return (int) (this.getWeight() - o.getWeight());
+	
+	}
 
 }

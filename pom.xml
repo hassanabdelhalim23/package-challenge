@@ -2,7 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mobiquityinc.packagechallenge</groupId>
   <artifactId>package-challenge</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
+  
 
 <dependencies>
 		
@@ -26,9 +27,11 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>src/</classpathPrefix>
-							<mainClass>com.mobiquityinc.packer</mainClass>
+							<mainClass>com.mobiquityinc.Packer</mainClass>
+							
 						</manifest>
 					</archive>
+					
 				</configuration>
 			</plugin>
 			<plugin>
